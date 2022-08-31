@@ -9,10 +9,10 @@
 <body>
 <h1><center>Webboard OAsiTz</center></h1>
 <hr>
-<center> ต้องการดูกระทู้หมายเลข 3 <br><br>
-<table style="border:2px solid black;width:20%">
+<center> ต้องการดูกระทู้หมายเลข <?php echo $_GET["id"];?><br><br>
+<table style="border:2px solid black;width:40%">
         <tr><td style="background-color: #6cd2fe;"colspan="2">แสดงความคิดเห็น</td></tr>
-        <tr><td><input type="user"name="user" size ="100"></td></tr>
+        <tr><td><textarea name = "massage" rows = "5" cols = "100"></textarea></td></tr>
         <tr><td colspan ="2" align="center"><input type="submit" value="ส่งข้อความ"></td></tr>
 </table>
 </center>
