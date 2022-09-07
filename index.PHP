@@ -17,6 +17,11 @@
     </select>
     <a href="login.html"style="float:right">เข้าสู่ระบบ</a>
     <br>
+    <?php
+        for($i = 1 ; $i<=10;$i++){
+            echo "<li><a href=post.php?id="."$i".">กระทู้ที่".$i."</a></li>"
+        ?>
+        }
     <ul> <form action="post.php" method="get">
         <li><a href="post.php?id=1">กระทู้ที่ 1</a></li>
         <li><a href="post.php?id=2">กระทู้ที่ 2</a></li>
