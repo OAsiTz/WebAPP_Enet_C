@@ -10,6 +10,20 @@
     <h1 align="center">Webboard OAsiTz  </h1>
     <hr>
     <div align = "center">
+        <?php
+            $login=$_POST["login"];
+            $password=$_POST["pass"];
+            if($login=="admin"&& $password=="ad1234"){
+                echo"ยินดีต้องรับคุณ ADMIN";
+            }
+            elseif($login =="member" &&  $password=="mem1234"){
+                echo"ยินดีต้อนรับคุณ MEMBER";
+            }
+            else{
+                echo "ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง";
+            }
+        ?>
+        <br><a href="index.php">กลับไปยังหน้าหลัก</a>
         เข้าสู่นะบบ <br>
         Login = <?php echo $_POST["login"];?><br>
         Password = <?php echo $_POST["pass"];?>
