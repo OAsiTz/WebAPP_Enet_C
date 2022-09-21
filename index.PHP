@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webboard KaKKak</title>
 </head>
+<?php
+    if(!isset($_SESSION['id'])){
+?>
 <body>
     <h1><center>Webboard OAsiTz</center></h1>
     <hr>
@@ -15,15 +21,56 @@
         <option value="general">เรื่องทั่วไป</option>
         <option value="study">เรื่องเรียน</option>
     </select>
-    <a href="login.html"style="float:right">เข้าสู่ระบบ</a>
+    <a href="login.php"style="float:right">เข้าสู่ระบบ</a>
     <br>
+    <a href="newpost.php">สร้างกระทู่ใหม่</a>
+    <br>
+    <ul> <form action="post.php" method="get">
     <?php
         for($i = 1 ; $i<=10;$i++){
             echo "<li><a href=post.php?id="."$i".">กระทู้ที่".$i."</a></li>";
         }
         ?>
-    <ul> <form action="post.php" method="get">
     </form>
     </ul>
 </body>
+<?php
+    }else{
+?>
+<body>
+    <h1><center>Webboard OAsiTz</center></h1>
+    <hr>
+    หมวดหมู่:
+    <select name = "category">
+        <option value="all">--ทั้งหมด--</option>
+        <option value="general">เรื่องทั่วไป</option>
+        <option value="study">เรื่องเรียน</option>
+    </select>
+    <div style="float:right">
+        <?php
+            echo "ผู้ใช้งานในระบบ :".$_SESSION['username'];
+        ?>
+    <a href="logout.php"target="">ออกจากระบบ</a><br>
+    </div>
+    <br>
+    <a href="newpost.php">สร้างกระทู่ใหม่</a>
+    <br>
+    <ul> <form action="post.php" method="get">
+    <?php
+        for($i = 1 ; $i<=10;$i++){
+            echo "<li>";
+            echo "<a href=post.php?id="."$i".">กระทู้ที่".$i."</a>";
+            if($_SESSION["role"] == "a"){
+                echo "&nbsp;&nbsp;<a href=delete.php?id=$i>ลบ</a>";
+            }
+            echo "</li>";
+
+        }
+        ?>
+    </form>
+    </ul>
+</body>
+<?php
+    }
+?>
 </html>
